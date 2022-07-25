@@ -1,0 +1,18 @@
+---
+- name: Copy Script to /home/
+  template:
+    src: "files/scripts.sh"
+    dest: "/home"
+    mode: a+x
+
+- name: Create file Update-file to /home
+  ansible.builtin.file:
+    path: /home/update-file
+    owner: root
+    group: root
+    mode: '0644'
+    state: absent
+
+- name: Run a script with arguments (using 'cmd' parameter)
+  ansible.builtin.script:
+    cmd: /bin/sh /home/scripts.sh --some-argument 1234

@@ -1,0 +1,2 @@
+[debian]
+SvrLab03 ansible_host=10.10.21.115 ansible_user=rusdi
