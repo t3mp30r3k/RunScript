@@ -1,0 +1,22 @@
+---
+- name: Test playbook
+  hosts: debian
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: Get git version of playbooks
+      command: git rev-parse HEAD
+      #command: git --version HEAD
+      register: git_version
+
+    - name: Record git version
+      ara_record:
+        key: "git_version"
+        value: "{{ git_version.stdout }}"
+      register: version
+
+    - name: Print recorded data
+      debug:
+        #msg: "{{ version.playbook_id }} - {{ version.key }} : {{ version.value }"
+        msg: "{{ version.stdout }}"
