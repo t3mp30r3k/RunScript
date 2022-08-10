@@ -19,4 +19,4 @@
     - name: Print recorded data
       debug:
         #msg: "{{ version.playbook_id }} - {{ version.key }} : {{ version.value }"
-        msg: "{{ version.stdout }}"
+        msg: "{{ version }}"
