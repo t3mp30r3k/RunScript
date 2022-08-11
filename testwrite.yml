@@ -1,5 +1,5 @@
 - name: Test Write and Schedule file
-  hosts: debian
+  hosts: servers
   become: yes
   become_method: sudo
   roles:
